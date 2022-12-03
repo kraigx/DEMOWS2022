@@ -287,7 +287,7 @@ apt install openssh-server ssh cifs-utils chrony network-manager nginx
 ```
 ```
 nmtui
-Настройка интерфейслв в соответствии с таблицей Маршрутизации
+Настройка интерфейсов в соответствии с таблицей Маршрутизации
 ```
 ```
 systemctl start sshd
