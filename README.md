@@ -23,6 +23,10 @@ access-list 1 permit 192.168.100.0 0.0.0.255
 ip nat inside source list 1 interface gi 1 overload
 ```
 ```
+line vty 0 15
+transport input shh
+```
+```
 ip route 0.0.0.0 0.0.0.0 4.4.4.1
 
 interface Tunnel1
@@ -111,6 +115,10 @@ access-list 1 permit 172.16.100.0 0.0.0.255
 ip nat inside source list 1 interface gi 1 overload
 ```
 ```
+line vty 0 15
+transport input ssh
+```
+```
 ip route 0.0.0.0 0.0.0.0 5.5.5.1
 
 interface Tunnel1
@@ -182,7 +190,7 @@ ISP
 apt-cdrom add
 apt-get update
 apt-get upgrade
-apt install chrony bind9 network-manager
+apt install chrony bind9(либо dnsmasq) network-manager
 ```
 ```
 nano /etc/sysctl.conf
@@ -202,6 +210,7 @@ local stratum 4
 allow 4.4.4.0/24
 allow 3.3.3.0/24
 ```
+### Настройка DNS с помощью Bind9
 ```
 cp /etc/bind/db.local > /etc/bind/demo.db
 cp /etc/bind/db.127 > /etc/bind/db.1.3
@@ -247,4 +256,122 @@ rtr-l	IN	A	4.4.4.100
 ```
 ```
 systemctl restart bind9
+```
+### Настройка DNS с помощью DNSMASq
+
+```
+apt install dnsmasq
+
+Вносим днс-записи в файл /etc/hosts:
+3.3.3.1 isp isp.demo.wsr
+4.4.4.100 www www.demo.wsr
+5.5.5.100 www www.demo.wsr
+
+Добавляем две строки в файл настроек /etc/dnsmasq.conf:
+cname=internet.demo.wsr,isp.demo.wsr
+server=/int.demo.wsr/4.4.4.100
+
+Рестартуем сервис dnsmasq:
+systemctl restart dnsmasq
+```
+### WEB-L,R Полная настройка
+```
+nano /etc/hostname
+WEB-L
+```
+```
+apt-cdrom add
+apt update
+apt upgrade
+apt install openssh-server ssh cifs-utils chrony network-manager nginx
+```
+```
+nmtui
+Настройка интерфейслв в соответствии с таблицей Маршрутизации
+```
+```
+systemctl start sshd
+systemctl enable ssh
+
+nano /etc/ssh/sshd_config
+PermitRootLogin yes
+
+systemctl restart sshd
+systemctl restart ssh
+```
+```
+nano /etc/chrony.conf
+
+pool ntp.int.demo.wsr iburst
+
+allow 192.168.100.0/24
+```
+```
+nano /root/.smbclient
+username=Administrator
+password=P@ssw0rd
+
+mkdir /opt/share
+
+nano /etc/fstab
+//srv.int.demo.wsr/smb /opt/share cifs user,rw,_netdev,credentials=/root/.smbclient	0	0
+mount -a
+```
+```
+Это делается после того, как мы экспортируем сертификат с SRV на /opt/share
+openssl pkcs12 -nodes -nocerts -in www.pfx -out www.key
+openssl pkcs12 -nodes -nokeys -in www.pfx -out www.cer
+
+cp www.key /etc/nginx/www.key
+cp www.cer /etc/nginx/www.cer
+
+nano /etc/nginx/snippets/snakeoil.conf
+/etc/nginx/www.cer
+/etc/nginx/www.key
+```
+```
+nano /etc/nginx/sites-avaliable/default
+
+upstream backend {
+	server 192.168.100.100:8080 fail_timeout=25;
+	server 172.16.100.100:8080 fail_timeout=25;
+}
+
+server {
+	listen 443 ssl default_server;
+	include snippets/snakeoil.conf;
+	
+	server_name www.demo.wsr;
+	
+	location / {
+		proxy_pass http://backend;
+	}
+}
+
+server {	
+	listen 80 default_server;
+	server_name www.demo.wsr;
+	return 301 https://www.demo.wsr;
+}
+```
+```
+systemctl restart nginx.service
+```
+```
+Вставляем диск с докером
+mkdir /mnt/app
+mkdir /mnt/docker
+
+mount /dev/sr0 /mnt/app
+cp /mnt/app/* /mnt/docker/
+
+cd /mnt/docker/
+
+dpkg -i *.deb
+
+docker load < /mnt/docker/appdocker0.tar
+
+docker images
+docker run --name app -p 8080:5000 -d appdocker0
+docker ps
 ```
