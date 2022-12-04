@@ -375,3 +375,38 @@ docker images
 docker run --name app -p 8080:5000 -d appdocker0
 docker ps
 ```
+### SRV Полная настройка
+```
+Первым делом, после запуска SRV заходим в Server Manager, там переходим в вкладку Local Server и устанавливаем Hostname и IP-адрес в соотвествии с заданием. После этого перезагружаем SRV, чтобы изменения применились.
+```
+![image](https://i.imgur.com/nlVZMVx.png)
+![image](https://i.imgur.com/lhQRTrT.png)
+```
+После перезагрузки устанавдиваем роли, которые нам будут нужны
+```
+![image](https://i.imgur.com/q6vUpeK.png)
+```
+Для этого, на главной страницы наижимаем на кнопку Manage > Add Roles and Features. Выбираем всё тоже самое, что указано на ниже представленной картинке
+```
+![image](https://i.imgur.com/IhSni8e.png)
+
+```
+Далее настройка DNS на SRV. В Server Meneger переходим на вкладку DNS, 
+нажимем правой кнопокой мыши на строку с нашим IP-адресом и в всплывших вариантах выбираем DNS Manger
+```
+![image](https://i.imgur.com/JJOEQmy.png)
+```
+Далее всё делаем по следующим представленным картинкам
+```
+![image](https://user-images.githubusercontent.com/60313293/205475108-d742bc75-ef32-4376-a88b-5e075cdd8931.png)
+![image](https://user-images.githubusercontent.com/60313293/205475178-bf42dfc8-0afa-48ca-b1c3-9c7f7ae334ca.png)
+![image](https://user-images.githubusercontent.com/60313293/205475194-e63c2153-a115-4b89-a6ab-d7f56ffa1d7f.png)
+![image](https://user-images.githubusercontent.com/60313293/205475201-15f5fe6c-1616-4bdc-9b89-1f96bd19707f.png)
+![image](https://user-images.githubusercontent.com/60313293/205475228-77d1df65-dee9-412f-90a7-f36c640de211.png)
+![image](https://user-images.githubusercontent.com/60313293/205475233-fa06f11d-cc00-48ab-a194-5b7f1df366b0.png)
+![image](https://user-images.githubusercontent.com/60313293/205475239-f9842f6a-1134-4a3c-bb97-de0c9d3dffa8.png)
+![image](https://user-images.githubusercontent.com/60313293/205475248-76ce8124-0d54-4e66-a771-ca7540924e98.png)
+![image](https://user-images.githubusercontent.com/60313293/205475252-8d327603-613e-4e39-9c1c-16a0f1fec797.png)
+```
+После создания зон вводим в них адреса, которые представленны нам в задании
+```
