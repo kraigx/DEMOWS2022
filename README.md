@@ -24,7 +24,7 @@ ip nat inside source list 1 interface gi 1 overload
 ```
 ```
 line vty 0 15
-transport input shh
+transport input ssh
 ```
 ```
 ip route 0.0.0.0 0.0.0.0 4.4.4.1
