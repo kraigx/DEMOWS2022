@@ -10,12 +10,12 @@ hostname RTR-L
 ```
 ```
 interface gi 1
-ip address 4.4.4.100
+ip address 4.4.4.100 255.255.255.0
 ip nat outside
 no sh
 
 interface gi 2
-ip address 192.168.100.254
+ip address 192.168.100.254 255.255.255.0
 ip nat inside
 no sh
 
@@ -102,12 +102,12 @@ hostname RTR-R
 ```
 ```
 interface gi 1
-ip address 5.5.5.100
+ip address 5.5.5.100 255.255.255.0
 ip nat outside
 no sh
 
 interface gi 2
-ip address 172.16.100.254
+ip address 172.16.100.254 255.255.255.0
 ip nat inside
 no sh
 
@@ -361,10 +361,10 @@ systemctl restart nginx.service
 Вставляем диск с докером
 mkdir /mnt/app
 mkdir /mnt/docker
-
 mount /dev/sr0 /mnt/app
 cp /mnt/app/* /mnt/docker/
 
+После того как скопировали файлы в /mnt/docker/ встявляем диск BD1 и после продолжаем установку
 cd /mnt/docker/
 
 dpkg -i *.deb
@@ -410,3 +410,73 @@ docker ps
 ```
 После создания зон вводим в них адреса, которые представленны нам в задании
 ```
+### Настройка RAID для smb
+![image](https://i.imgur.com/pYIRsoi.png)
+###
+![image](https://i.imgur.com/qRDsGB4.png)
+###
+![image](https://i.imgur.com/UZHvOrz.png)
+###
+![image](https://i.imgur.com/4Uahgfy.png)
+###
+![image](https://i.imgur.com/Tqlf9l7.png)
+###
+![image](https://i.imgur.com/EceFEbp.png)
+###
+![image](https://i.imgur.com/7BUyhdD.png)
+###
+![image](https://i.imgur.com/OlOycCC.png)
+###
+![image](https://i.imgur.com/rxkPxAc.png)
+###
+![image](https://i.imgur.com/eK2KoJM.png)
+###
+![image](https://i.imgur.com/wL96RiT.png)
+###
+![image](https://i.imgur.com/jwKkJ36.png)
+
+### Настройка сертификации
+```
+После установки роли начинаем её настройку, в неё можно перейти по значку флага в верхней части Server Meneger, центр сертификации попросит настроить сервис, поэтому там должен появиться знак треугольника с восклицательным знаком.
+```
+![iamge](https://i.imgur.com/XFcmssX.png)
+```
+После этого нажимаем Next до момента настройки CA NAME, там в первой строчке надо будет написать следующие - Demo.wsr, после чего нажимать Next до конца.
+```
+```
+Дальше переходим к настройки IIS
+```
+![image](https://i.imgur.com/FYXFxkS.png)
+![image](https://i.imgur.com/UCRro7s.png)
+![iamge](https://i.imgur.com/y9EyO1b.png)
+![image](https://i.imgur.com/B4TUtHW.png)
+
+### Продолжаем настройку сертификации
+```
+Заходим в браузер и вводим данную ссылку - https://localhost/certsrv/
+```
+![image](https://i.imgur.com/F2bKovB.png)
+![image](https://i.imgur.com/eqlnmSx.png)
+![image](https://i.imgur.com/s7YAvDi.png)
+![image](https://user-images.githubusercontent.com/60313293/205651246-49b7cc7c-3d2e-43df-b977-7075c0ae743a.png)
+![image](https://i.imgur.com/mzTpFR0.png)
+![image](https://i.imgur.com/uMCS8dB.png)
+![iamge](https://i.imgur.com/80XIi6h.png)
+```
+Там будет устанвка сертификата,просто нажимаем на install certificate
+```
+### Экспорт сертификата на smb папку
+![image](https://i.imgur.com/OT9mUVN.png)
+![image](https://i.imgur.com/BSUm9dW.png)
+![image](https://i.imgur.com/jOrOkg2.png)
+![image](https://i.imgur.com/pZFt6UE.png)
+![image](https://i.imgur.com/YZ3JIN1.png)
+
+### Настройка NTP
+![image](https://i.imgur.com/MjpL55h.png)
+![iamge](https://i.imgur.com/zQcIkrq.png)
+![image](https://i.imgur.com/WhTRItR.png)
+![image](https://i.imgur.com/sMubFKu.png)
+![image](https://i.imgur.com/ZvGVTPg.png)
+![image](https://user-images.githubusercontent.com/60313293/205655011-730bf3b2-2820-4f9a-a1e2-c9e262ec0d1a.png)
+![image](https://user-images.githubusercontent.com/60313293/205655135-c3bf267e-1646-4a06-a757-cefb1fc4d120.png)
