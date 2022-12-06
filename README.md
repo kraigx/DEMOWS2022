@@ -491,6 +491,12 @@ docker ps
 
 ### CLI Полная настройка
 
+### Настройка сети
+![image](https://user-images.githubusercontent.com/60313293/205930700-875df70e-3180-4c37-8cf7-ae3349a1d25a.png)
+![image](https://user-images.githubusercontent.com/60313293/205930789-73d999d2-ced6-45a1-8ef8-830a90fb018b.png)
+![image](https://user-images.githubusercontent.com/60313293/205930875-c52f7564-97bb-449f-8ba3-26c1e8c92184.png)
+![image](https://user-images.githubusercontent.com/60313293/205931034-acf5dadf-c963-477d-8d4c-a3aca34cbfc4.png)
+
 ### Настройка NTP
 ![image](https://user-images.githubusercontent.com/60313293/205929728-35451477-15df-4532-a0aa-9344dd8f50e5.png)
 ![image](https://user-images.githubusercontent.com/60313293/205929823-ae7f2f3c-9c8e-4348-9eca-2b680274c903.png)
