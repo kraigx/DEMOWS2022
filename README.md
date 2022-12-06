@@ -121,6 +121,10 @@ ip nat inside source list 1 interface gi 1 overload
 ```
 line vty 0 15
 transport input ssh
+login local
+exit
+crypro key generate rsa
+1024
 ```
 ```
 ip route 0.0.0.0 0.0.0.0 5.5.5.1
