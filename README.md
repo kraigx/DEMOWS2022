@@ -488,3 +488,25 @@ docker ps
 ![image](https://i.imgur.com/ZvGVTPg.png)
 ![image](https://user-images.githubusercontent.com/60313293/205655011-730bf3b2-2820-4f9a-a1e2-c9e262ec0d1a.png)
 ![image](https://user-images.githubusercontent.com/60313293/205655135-c3bf267e-1646-4a06-a757-cefb1fc4d120.png)
+
+### CLI Полная настройка
+
+### Настройка NTP
+![image](https://user-images.githubusercontent.com/60313293/205929728-35451477-15df-4532-a0aa-9344dd8f50e5.png)
+![image](https://user-images.githubusercontent.com/60313293/205929823-ae7f2f3c-9c8e-4348-9eca-2b680274c903.png)
+![image](https://user-images.githubusercontent.com/60313293/205930030-8f27314f-3dfd-48a9-8bad-10f354e6cd7b.png)
+
+### Получение и установка сертификата
+![image](https://user-images.githubusercontent.com/60313293/205928192-d22997c7-cb72-42dd-84b9-34bba6ff0b3d.png)
+![image](https://user-images.githubusercontent.com/60313293/205928988-e21f5870-c91d-40fa-a9eb-183cc3e2eb41.png)
+![image](https://user-images.githubusercontent.com/60313293/205929271-87d624df-31fe-426c-a680-fc377a031fa5.png)
+![image](https://user-images.githubusercontent.com/60313293/205929335-d181854b-4d37-4561-8985-08564b73985b.png)
+![image](https://user-images.githubusercontent.com/60313293/205929387-8ce9e237-689f-4298-9cb5-11598c6474af.png)
+![image](https://user-images.githubusercontent.com/60313293/205929447-69abd63b-322a-473f-8cfd-072178409531.png)
+![image](https://user-images.githubusercontent.com/60313293/205929518-8d8d2b72-09fb-4f01-b5c6-af32c67b5bdc.png)
+
+### Итог
+```
+Переходим в браузер и прописываем следующий адрес - https://www.demo.wsr
+```
+![image](https://user-images.githubusercontent.com/60313293/205930224-c1364ddb-15bd-4cbf-9e2d-3b8c6c16cfb0.png)
