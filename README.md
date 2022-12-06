@@ -81,7 +81,7 @@ interface gi 1
 ip access-group Lnew in
 ```
 ```
-ip domain name srv.int.demo.wsr
+ip domain name int.demo.wsr
 ip name-server 192.168.100.200
 ntp server ntp.int.demo.wsr
 ```
@@ -169,7 +169,7 @@ interface gi 1
 ip access-group Rnew in
 ```
 ```
-ip domain name srv.int.demo.wsr
+ip domain name int.demo.wsr
 ip name-server 192.168.100.200
 ntp server ntp.int.demo.wsr
 ```
