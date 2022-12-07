@@ -504,7 +504,11 @@ docker ps
 
 ### Получение и установка сертификата
 ![image](https://user-images.githubusercontent.com/60313293/205928192-d22997c7-cb72-42dd-84b9-34bba6ff0b3d.png)
+```
+```
 ![image](https://user-images.githubusercontent.com/60313293/205928988-e21f5870-c91d-40fa-a9eb-183cc3e2eb41.png)
+```
+```
 ![image](https://user-images.githubusercontent.com/60313293/205929271-87d624df-31fe-426c-a680-fc377a031fa5.png)
 ![image](https://user-images.githubusercontent.com/60313293/205929335-d181854b-4d37-4561-8985-08564b73985b.png)
 ![image](https://user-images.githubusercontent.com/60313293/205929387-8ce9e237-689f-4298-9cb5-11598c6474af.png)
