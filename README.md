@@ -308,7 +308,7 @@ systemctl restart sshd
 systemctl restart ssh
 ```
 ```
-nano /etc/chrony.conf
+nano /etc/chrony/chrony.conf
 
 pool ntp.int.demo.wsr iburst
 
