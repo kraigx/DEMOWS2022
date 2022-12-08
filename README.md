@@ -103,6 +103,7 @@ permit tcp any host 4.4.4.100 eq 53
 permit udp any host 4.4.4.100 eq 53
 permit udp any host 4.4.4.100 eq 123
 permit udp host 4.4.4.1 eq 53 host 4.4.4.100
+permit udp host 4.4.4.1 eq 123 host 4.4.4.100
 permit tcp any host 4.4.4.100 eq 80
 permit tcp any host 4.4.4.100 eq 443
 permiy tcp any host 4.4.4.100 eq 2222
