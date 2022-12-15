@@ -60,7 +60,7 @@ line vty 0 15
 transport input ssh
 login local
 exit
-crypro key generate rsa
+crypto key generate rsa
 1024
 ```
 ```
