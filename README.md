@@ -414,7 +414,7 @@ dpkg -i *.deb
 docker load < /mnt/docker/appdocker0.tar
 
 docker images
-docker run --name app -p 8080:5000 -d appdocker0
+docker run --name app -p 8080:5000 -d appdocker0 --restart=always
 docker ps
 ```
 ### SRV Полная настройка
